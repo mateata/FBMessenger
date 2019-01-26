@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "894953094762-nfonr91066qs2eigvgu0uqf990aqau9b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mateata.example.fbmessenger",
+            "certificate_hash": "1d84c6a776984eb4cac25e2d5e9aa6c28403acce"
+          }
+        },
+        {
           "client_id": "894953094762-adcbfdpfj7hja5nsbn6tkm29b0j6vb9o.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894953094762-adcbfdpfj7hja5nsbn6tkm29b0j6vb9o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

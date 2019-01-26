@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
@@ -36,6 +37,7 @@ public class FriendFragment extends Fragment {
     LinearLayout mSearchArea;
     EditText edtEmail;
     RecyclerView mRecyclerView;
+    Button findBtn;
 
     private FirebaseUser mFirebaseUser;
 
@@ -54,6 +56,17 @@ public class FriendFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View friendView = inflater.inflate(R.layout.fragment_friends, container, false);
+
+        mSearchArea = friendView.findViewById(R.id.search_area);
+        edtEmail = friendView.findViewById(R.id.edtContent);
+        mRecyclerView = friendView.findViewById(R.id.friendRecyclerView);
+        findBtn = friendView.findViewById(R.id.findBtn);
+        findBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addFriend();
+            }
+        });
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
@@ -76,9 +89,7 @@ public class FriendFragment extends Fragment {
 
     public void addFriend(){
 
-        // 1.입력된 이메일을 가져옵니다.
         final String inputEmail = edtEmail.getText().toString();
-        // 2. 이메일이 입력되지 않았다면 이메일을 입력해주시라는 메세지를 띄워줍니다.
         if ( inputEmail.isEmpty()) {
             Snackbar.make(mSearchArea, getString(R.string.prompt_email), Snackbar.LENGTH_LONG).show();
             return;

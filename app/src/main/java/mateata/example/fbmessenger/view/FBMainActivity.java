@@ -19,20 +19,21 @@ import mateata.example.fbmessenger.R;
 public class FBMainActivity extends AppCompatActivity {
 
     TabLayout mTabLayout;
-
-    FloatingActionButton mFab;
-
+    FloatingActionButton mFloatBtn;
     ViewPager mViewPager;
-
     ViewPagerAdapter mPageAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fbmain);
+        mTabLayout = findViewById(R.id.tabs);
+        mFloatBtn = findViewById(R.id.floatBtn);
+        mViewPager = findViewById(R.id.viewpager);
+
         mTabLayout.setupWithViewPager(mViewPager);
         setUpViewPager();
-        mFab.setOnClickListener(new View.OnClickListener() {
+        mFloatBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Fragment currentFragment = mPageAdapter.getItem(mViewPager.getCurrentItem());

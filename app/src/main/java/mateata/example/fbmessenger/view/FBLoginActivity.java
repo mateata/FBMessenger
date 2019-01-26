@@ -31,6 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import mateata.example.fbmessenger.R;
 import mateata.example.fbmessenger.adapter.User;
+import mateata.example.fbmessenger.util.Dlog;
 
 
 /**
@@ -77,6 +78,8 @@ public class FBLoginActivity extends AppCompatActivity {
                     @Override
                     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
                         // 실패 시 처리 하는 부분.
+
+                        Dlog.e(connectionResult.getErrorMessage());
                     }
                 })
                 .addApi(Auth.GOOGLE_SIGN_IN_API, mGoogleSignInoptions)
@@ -88,6 +91,7 @@ public class FBLoginActivity extends AppCompatActivity {
                 signIn();
             }
         });
+        signIn();
     }
 
     private void signIn() {
@@ -105,9 +109,10 @@ public class FBLoginActivity extends AppCompatActivity {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
+                Dlog.e("success : ");
             } else {
                 // Google Sign In failed, update UI appropriately
-                // ...
+                Dlog.e("fail : ");
             }
         }
     }
