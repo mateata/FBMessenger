@@ -80,7 +80,7 @@ public class FriendFragment extends Fragment {
         final String inputEmail = edtEmail.getText().toString();
         // 2. 이메일이 입력되지 않았다면 이메일을 입력해주시라는 메세지를 띄워줍니다.
         if ( inputEmail.isEmpty()) {
-            Snackbar.make(mSearchArea, "이메일을 입력해주세요. ", Snackbar.LENGTH_LONG).show();
+            Snackbar.make(mSearchArea, getString(R.string.prompt_email), Snackbar.LENGTH_LONG).show();
             return;
         }
         // 3. 자기 자신을 친구로 등록할 수 없기때문에 FirebaseUser의 email이 입력한 이메일과 같다면, 자기자신은 등록 불가 메세지를 띄워줍니다.
